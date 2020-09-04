@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\TypeCompteRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=TypeCompteRepository::class)
  */
 class TypeCompte
@@ -19,6 +22,7 @@ class TypeCompte
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:comptes"})
      */
     private $libelle;
 

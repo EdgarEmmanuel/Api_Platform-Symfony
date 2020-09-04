@@ -12,8 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
- * @ApiResource
- * @ApiFilter(SearchFilter::class, properties={"compte_id": "exact"})
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  */
 class Client
@@ -22,37 +21,31 @@ class Client
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"boost"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"boost"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"boost"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"boost"})
      */
     private $matricule;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"boost"})
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"boost"})
      */
     private $password;
 

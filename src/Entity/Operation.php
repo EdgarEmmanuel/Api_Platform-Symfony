@@ -8,6 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=OperationRepository::class)
  */
 class Operation
@@ -21,22 +22,26 @@ class Operation
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"read:comptes"})
      */
     private $montant;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:comptes"})
      */
     private $dateOperation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:comptes"})
      */
     private $nomOperation;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Compte::class, inversedBy="op")
+     * @ORM\ManyToOne(targetEntity=Compte::class, inversedBy="operation")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"read:comptes"})
      */
     private $compte_id;
 
@@ -94,5 +99,5 @@ class Operation
     }
 
   
-    
+
 }
